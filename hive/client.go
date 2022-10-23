@@ -38,6 +38,7 @@ func (c *Client) OpenSession(ctx context.Context) (*Session, error) {
 	cfg := map[string]string{
 		"MEM_LIMIT":     c.opts.MemLimit,
 		"QUERY_TIMEOUT_S": strconv.Itoa(c.opts.QueryTimeout),
+		"FETCH_ROWS_TIMEOUT_MS": strconv.Itoa(60000*3),
 	}
 
 	req := cli_service.TOpenSessionReq{
